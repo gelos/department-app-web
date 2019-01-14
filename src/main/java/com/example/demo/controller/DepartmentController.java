@@ -12,7 +12,7 @@ import com.example.demo.service.DepartmentServiceImpl;
 public class DepartmentController {
   @Autowired
   private DepartmentServiceImpl departmentServiceImpl;
-  
+   
   @RequestMapping(method = RequestMethod.GET)
   public String findAll(Model model) {
       model.addAttribute("departments", departmentServiceImpl.findAll());

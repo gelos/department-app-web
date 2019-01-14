@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<table>
+	<caption>Form1. Departments with mean salary table.
+	</caption>
+	<colgroup />
+	<colgroup span="2" title="title" />
+	<thead>
+		<tr>
+			<th scope="col">id</th>
+			<th scope="col">department</th>
+			<th scope="col">mean salary</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="department : ${departments}" >
+			<td th:utext="${department.id}">...</td>
+			<td th:utext="${department.name}">...</td>
+			<td th:utext="${department.name}">...</td>
+		</tr>		
+	</tbody>
+</table>
+
+
+</body>
+</html>
