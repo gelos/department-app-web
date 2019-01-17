@@ -7,7 +7,7 @@
 <body>
 
 <table>
-	<caption>Form1. Departments with mean salary table.
+	<caption>Form1. Departments list with average salary.
 	</caption>
 	<colgroup />
 	<colgroup span="2" title="title" />
@@ -15,14 +15,14 @@
 		<tr>
 			<th scope="col">id</th>
 			<th scope="col">department</th>
-			<th scope="col">mean salary</th>
+			<th scope="col">average salary</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr th:each="department : ${departments}" >
 			<td th:utext="${department.id}">...</td>
 			<td th:utext="${department.name}">...</td>
-			<td th:utext="${department.name}">...</td>
+			<td th:utext="${department.avgSalary2}">...</td>
 		</tr>		
 	</tbody>
 </table>

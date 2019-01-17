@@ -33,5 +33,7 @@ public class Department {
   //@ResourceId public long getId() { return this.getId(); }
   
   //private List<Employee> employees;
+  
+  private Double avgSalary2;
 
 }
