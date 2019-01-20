@@ -16,13 +16,15 @@
 			<th scope="col">id</th>
 			<th scope="col">department</th>
 			<th scope="col">average salary</th>
+			<th scope="col">URI</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr th:each="department : ${departments}" >
-			<td th:utext="${department.id}">...</td>
+			<td th:utext="${departmentStat.index+1}">...</td>
 			<td th:utext="${department.name}">...</td>
-			<td th:utext="${department.avgSalary2}">...</td>
+			<td th:utext="${#numbers.formatDecimal(department.avgSalary,0 , 2)}">...</td>
+			<td th:utext="${department.id}">...</td>
 		</tr>		
 	</tbody>
 </table>

@@ -14,7 +14,7 @@ public class DepartmentController {
   private DepartmentServiceImpl departmentServiceImpl;
    
   @RequestMapping(method = RequestMethod.GET)
-  public String findAll(Model model) {
+  public String listDepartments(Model model) {
       model.addAttribute("departments", departmentServiceImpl.findAll());
       return "departments";
   }
