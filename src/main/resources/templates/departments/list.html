@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<head th:replace="layout :: site-head">
+ <!--   <title th:text="${post.title}">View departments</title> -->
 </head>
 <body>
-
-<table>
-	<caption>Form1. Departments list with average salary.
+<header th:replace="layout :: site-header" />
+<div class="container">
+<table class = "table">
+	<!--  <caption>Form1. Departments list with average salary.
 	</caption>
 	<colgroup />
-	<colgroup span="2" title="title" />
+	<colgroup span="2" title="title" /> -->
 	<thead>
 		<tr>
 			<th scope="col">id</th>
@@ -29,6 +29,6 @@
 	</tbody>
 </table>
 
-
+</div>
 </body>
 </html>

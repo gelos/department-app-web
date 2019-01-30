@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+<!--   <title th:text="${post.title}">View departments</title> -->
+</head>
+<body>
+	<header th:replace="layout :: site-header" />
+	<div class="container">
+		<table class="table">
+			<!--  <caption>Form1. Departments list with average salary.
+	</caption>
+	<colgroup />
+	<colgroup span="2" title="title" /> -->
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Name</th>
+					<th scope="col">Salary</th>
+					<th scope="col">Born date</th>
+					<th scope="col">Department</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="employee : ${employees}">
+					<td th:utext="${employeeStat.index+1}">...</td>
+					<td th:utext="${employee.secondName + ' ' + employee.firstName + ' ' + employee.patronymic}">...</td>
+					<td th:utext="${#numbers.formatDecimal(employee.salary,0 , 2)}">...</td>
+				<!--	<td th:utext="${employee.bornDate}">...</td> -->
+					<td th:text="${#temporals.format(employee.bornDate, 'dd-MM-yyyy')}">...</td>
+					<td th:utext="${employee.department}">...</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>
