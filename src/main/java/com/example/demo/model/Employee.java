@@ -10,29 +10,34 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import uk.co.blackpepper.bowman.annotation.LinkedResource;
 import uk.co.blackpepper.bowman.annotation.RemoteResource;
 
 @RemoteResource("/employees")
-@NoArgsConstructor(access=AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
-@JsonIgnoreProperties(ignoreUnknown=true)
-public class Employee extends BaseEntity{
- 
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Employee extends BaseEntity {
+
   private String firstName;
-  
+
   private String patronymic;
-  
+
   private String secondName;
-  
+
   // Add to support String to LocalDate deserialization
- @JsonDeserialize(using = LocalDateDeserializer.class)  
+  @JsonDeserialize(using = LocalDateDeserializer.class)
   private LocalDate bornDate;
-  
+
   private int salary;
-  
+
   private Department department;
-  
+
+  @LinkedResource
+  public Department getDepartment() {
+    return department;
+  }
 }
