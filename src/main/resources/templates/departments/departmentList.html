@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+<!--   <title th:text="${post.title}">View departments</title> -->
+</head>
+<body>
+	<header th:replace="layout :: site-header" />
+	<div class="container">
+		<table class="table">
+			<!--  <caption>Form1. Departments list with average salary.
+	</caption>
+	<colgroup />
+	<colgroup span="2" title="title" /> -->
+			<thead>
+				<tr>
+					<th scope="col">id</th>
+					<th scope="col">department</th>
+					<th scope="col">average salary</th>
+					<th scope="col">URI</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="department : ${departments}">
+					<td th:utext="${departmentStat.index+1}">...</td>
+					<td th:utext="${department.name}">...</td>
+					<td
+						th:utext="${#numbers.formatDecimal(department.avgSalary,0 , 2)}">...</td>
+					<td th:utext="${department.id}">...</td>
+					<td><a th:href="@{/departments/__${department.getId()}__}"
+						th:text="Edit" /></a></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a th:href="@{/departments/}"
+						th:text="Add" /></a></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>

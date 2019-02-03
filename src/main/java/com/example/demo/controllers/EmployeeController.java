@@ -13,11 +13,11 @@ public class EmployeeController {
   @Autowired
   private EmployeeServiceImpl employeeServiceImpl;
    
-  @RequestMapping(value = {"/employees/list", "/employees"}, method = RequestMethod.GET)
+  @RequestMapping(value = {"/employees/list", "/employees", "employees/employeeList"}, method = RequestMethod.GET)
   public String listEmployees(Model model) {
       model.addAttribute("employees", employeeServiceImpl.findAll());
       model.addAttribute("localDate", LocalDate.now());
-      return "employees/list";
+      return "employees/employeeList";
   }
 
 }

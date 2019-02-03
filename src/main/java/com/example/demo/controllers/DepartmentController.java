@@ -12,10 +12,10 @@ public class DepartmentController {
   @Autowired
   private DepartmentServiceImpl departmentServiceImpl;
    
-  @RequestMapping(value = {"/departments/list", "/departments"}, method = RequestMethod.GET)
+  @RequestMapping(value = {"/departments/list", "/departments", "/departments/departmentList"}, method = RequestMethod.GET)
   public String listDepartments(Model model) {
       model.addAttribute("departments", departmentServiceImpl.findAll());
-      return "departments/list";
+      return "departments/departmentList";
   }
 
 }
