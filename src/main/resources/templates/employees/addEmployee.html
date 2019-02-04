@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head" >
+<meta charset="UTF-8">
+</head>
+<body>
+	<header th:replace="layout :: site-header" />
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Add Employee</h1>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-6">
+					<a class="btn btn-info" href="#" th:href="@{/employees/list}">
+						Back to Employee List </a>
+					<form action="#" class="form-horizontal" th:action="@{/employees/save}"
+						th:object="${form}" method="post">
+						<fieldset>
+							<span class="pull-right"> 
+							    <input type="submit" id="submitButton" class="btn btn-success" th:value="Save">
+								<input type="reset" id="resetButton" class="btn btn-danger"	th:value="Reset" />
+							</span>
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">First Name</th>
+										<th scope="col">Patronymic</th>
+										<th scope="col">Second Name</th>
+										<th scope="col">Salary</th>
+										<th scope="col">Born date</th>
+										<th scope="col">Отдел</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><input
+											th:placeholder="FirstName"
+											th:field="${employee.firstName}" required /></td>
+										
+									 	<td><input
+											th:placeholder="Patronymic"
+											th:field="${employee.patronymic}" required /></td>
+								 		<td><input
+											th:placeholder="SecondName"
+											th:field="${employee.secondName}" required /></td>
+										<td><input
+											th:placeholder="Salary"
+											th:field="${employee.salary}" required /></td>
+										<td><input
+											th:placeholder="BornDate"
+											th:field="${employee.bornDate}" /></td>
+										<td><input
+											th:placeholder="Department"
+											th:field="${employee.department}" /></td>
+									
+								<!--	 -->		
+									</tr>
+								</tbody>
+							</table>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

@@ -14,7 +14,8 @@ import uk.co.blackpepper.bowman.annotation.LinkedResource;
 import uk.co.blackpepper.bowman.annotation.RemoteResource;
 
 @RemoteResource("/employees")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+//@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
