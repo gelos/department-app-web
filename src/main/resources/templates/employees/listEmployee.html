@@ -7,12 +7,6 @@
 <body>
 	<header th:replace="layout :: site-header" />
 	<div class="container">
-	<span class="pull-right">
-	<div class="col-md-6">
-		<a class="btn btn-success" href="#" th:href="@{/employees/add}">	Добавить сотрудника </a> 
-		<a class="btn btn-primary" href="#" th:href="@{/employees/edit}" th:classappend="${employees.empty} ? 'disabled' : ''">	Редактировать </a>
-	</div>
-	</span>
 		<table class="table">
 			<div class="col-md-6">
 				<thead>
@@ -22,7 +16,8 @@
 						<th scope="col">Salary</th>
 						<th scope="col">Born date</th>
 						<th scope="col">Отдел</th>
-
+						<th><a class="btn btn-success" href="#"
+							th:href="@{/employees/add}">Добавить</a></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -36,6 +31,13 @@
 						<td><a
 							th:href="@{/departments/__${employee.department.getId()}__}"
 							th:text="${employee.department.getName()}" /></a></td>
+						<td>
+						<a class="btn btn-primary" href="#" th:href="@{/employees/__${employee.getId()}__/edit}" th:classappend="${employees.empty} ? 'disabled' : ''">Изменить
+						</a></td>
+						
+								<!-- 							th:href="@{/employees/__${employee.getId()}__/edit}"
+							th:classappend="${employees.empty} ? 'disabled' : ''">Изменить</a></td>
+--> 
 
 					</tr>
 				</tbody>

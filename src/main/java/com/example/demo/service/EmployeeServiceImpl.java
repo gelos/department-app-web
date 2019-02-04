@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -21,8 +22,11 @@ public class EmployeeServiceImpl {
   }
 
   public List<Employee> findAll() {
-
     return StreamSupport.stream(this.client.getAll().spliterator(), false).collect(Collectors.toList());
   }
 
+  public Employee findById(URI uri) {
+    return this.client.get(uri);
+  }
+  
 }
