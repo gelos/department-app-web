@@ -1,20 +1,21 @@
 package com.example.demo.controllers;
 
+import java.net.URI;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.hateoas.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import com.example.demo.model.Employee;
 import com.example.demo.service.EmployeeServiceImpl;
-import lombok.extern.log4j.Log4j;
 
 @Controller
 @RequestMapping("/employees")
+//@SessionAttributes("employee")
 public class EmployeeController {
   @Autowired
   private EmployeeServiceImpl employeeServiceImpl;
@@ -24,8 +25,10 @@ public class EmployeeController {
 
   // Need for instantiate new employee for POST in listEmployee.
   @ModelAttribute(value = "employee")
+  //public Employee newEmployee(@RequestParam("id") URI id)
   public Employee newEmployee()
   {
+    //return employeeServiceImpl.findById(id);
       return new Employee();
   }
   
@@ -58,8 +61,9 @@ public class EmployeeController {
 
       System.err.println("THIS IS A TEST!!!" + employee.getId() + " " + employee.getFirstName());
 
-  //    model.addAttribute("employee", employee);
-
+      model.addAttribute("employee", employeeServiceImpl.findById(employee.getId()));
+      //model.a
+      //model.mergeAttributes(attributes)
       return VIEWS_EMPLOYEES_ADD_OR_UPDATE_FORM;
   }
 /*  
