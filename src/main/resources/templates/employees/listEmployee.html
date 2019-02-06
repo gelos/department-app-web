@@ -35,8 +35,9 @@
 							<form method="post" th:action="@{/employees/edit}"
 								th:object="${employee}">
 								<input type="hidden" th:value="*{id}" name="id" />
-								<button type="submit">Редактировать</button>
+								<button type="submit" class="btn btn-primary">Изменить</button>
 							</form>
+						</td>
 					</tr>
 				</tbody>
 		</table>

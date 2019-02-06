@@ -25,8 +25,12 @@ public class EmployeeServiceImpl {
     return StreamSupport.stream(this.client.getAll().spliterator(), false).collect(Collectors.toList());
   }
 
-  public Employee findById(URI uri) {
-    return this.client.get(uri);
+  public Employee findById(URI employeeId) {
+    return this.client.get(employeeId);
+  }
+  
+  public void save(Employee employee) {
+    this.client.put(employee);
   }
   
 }

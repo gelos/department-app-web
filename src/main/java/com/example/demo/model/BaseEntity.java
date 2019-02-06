@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import java.net.URI;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import uk.co.blackpepper.bowman.annotation.ResourceId;
@@ -9,6 +10,7 @@ import uk.co.blackpepper.bowman.annotation.ResourceId;
 @Setter // Need for setting id in object while transfer data between html and controller 
 public abstract class BaseEntity {
 
+  //@JsonIgnore
   private URI id;
 
   @ResourceId public URI getId() { return id; }
